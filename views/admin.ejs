@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <i class="fas fa-key fa-6x"></i>
+    <h1 class="display-3">All Users Secrets</h1>
+
+<%usersWithSecrets.forEach(function(user){ %>
+  <form action="/delete" method="post">
+    <div>
+      <input type="checkbox" name="checkbox" value="<%=user._id%>" onChange="this.form.submit()">
+      <p class="secret-text"> <%=user.secret%> </p>
+    </div>
+  </form>
+
+<% }) %>
+
+    <hr>
+
+    <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
+    <a class="btn btn-dark btn-lg" href="/submit" role="button">Submit a Secret</a>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
